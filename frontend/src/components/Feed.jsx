@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import {useMessageStore} from "../store/useMessageStore"
 
 const Feed = ({ title = 'Сообщения' }) => {
-    const [messages, getMessages] = useMessageStore()
+    const {messages, getMessages} = useMessageStore()
 
     useEffect(() => {
         getMessages()
