@@ -5,9 +5,11 @@
       "content": "fdsf",
       "userId": 1,
       "username": "pasha",
-      "likes": 0,
+      "likes": 1,
       "reports": 0,
-      "likedBy": [],
+      "likedBy": [
+        2
+      ],
       "reportedBy": [],
       "createdAt": "2025-10-07T16:45:52.058Z"
     },
@@ -21,6 +23,19 @@
       "likedBy": [],
       "reportedBy": [],
       "createdAt": "2025-10-07T16:48:09.503Z"
+    },
+    {
+      "id": 3,
+      "content": "qwe",
+      "userId": 2,
+      "username": "qweqwe",
+      "likes": 1,
+      "reports": 0,
+      "likedBy": [
+        2
+      ],
+      "reportedBy": [],
+      "createdAt": "2026-10-12T05:02:24.429Z"
     }
   ],
   "users": [
@@ -30,6 +45,13 @@
       "email": "pasha@example.com",
       "password": "$2b$10$h92e990XlgD1hreAWfLzKuWrwWgP9j8IWJRQPn72u3MJZTt3yLWRC",
       "createdAt": "2025-10-07T16:22:34.688Z"
+    },
+    {
+      "id": 2,
+      "username": "qweqwe",
+      "email": "qwe@qwe",
+      "password": "$2b$10$UNa/NpvvnmL5Jh8IvZoOBuXloksSY3XnZcDw1nioc/6i52uE0JzNu",
+      "createdAt": "2026-10-12T05:02:06.709Z"
     }
   ]
 }
