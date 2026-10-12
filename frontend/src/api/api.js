@@ -1,30 +1,31 @@
-import axios from "axios";
+import axios from "axios"
+
 
 const apiInstance = axios.create({
-    baseURL: "",
+    baseURL: "https://api.kitek-pg.ru/api/feedback/",
     headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        Accept: "application/json",
     },
 })
 
 apiInstance.interceptors.request.use((config) => {
-    const {session} = useUserStore.getState()
+    const { session } = useUserStore.getState()
 
     if (session?.token) {
         config.headers.Authorization = `Bearer ${session.token}`
-        }
-    
+    }
+
     return config
-    })
+})
 
 const registerUser = async (user) => {
-    const res =  await apiInstance.post("/auth/register", user)
+    const res = await apiInstance.post("/auth/register", user)
     return res
 }
 
 const loginUser = async (user) => {
-    const res =  await apiInstance.post("/auth/login", user)
+    const res = await apiInstance.post("/auth/login", user)
     return res
 }
 
@@ -33,16 +34,50 @@ const getMessages = async () => {
     return res
 }
 
-
-const sendMessages = async () => {
+const sendMessage = async (message) => {
     const res = await apiInstance.post("/messages", message)
     return res
 }
 
-export const api = {
-    registerUser,
-    loginUser,
-    getMessages,
-    sendMessages
+const authMe = async () => {
+    const res = await apiInstance.get("/auth/me")
+    return res
 }
 
+const deleteMessage = async (id) => {
+    const res = await apiInstance.delete(`/messages/${id}`)
+    return res
+}
+
+const likeMessage = async (id) => {
+    const res = await apiInstance.post(`/messages/${id}/like`)
+    return res
+}
+
+const reportMessage = async (id) => {
+    const res = await apiInstance.post(`/messages/${id}/report`)
+    return res
+}
+
+const getStats = async () => {
+    const res = await apiInstance.get(`/stats`)
+    return res
+}
+
+const getMyMessages = async () => {
+    const res = await apiInstance.get(`/my-messages`)
+    return res
+}
+
+export const api = {
+    getMyMessages,
+    getStats,
+    reportMessage,
+    likeMessage,
+    deleteMessage,
+    registerUser,
+    loginUser,
+    authMe,
+    getMessages,
+    sendMessage,
+}
